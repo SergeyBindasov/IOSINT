@@ -23,7 +23,7 @@ class ProfileTableHederView: UIView {
     
     private lazy var title: UILabel = {
         let lable = UILabel()
-        lable.text = "Name Name"
+        lable.text = "Sergey Ivanov"
         lable.font = UIFont.systemFont(ofSize: 18, weight: .bold)
         lable.textColor = .black
         lable.textAlignment = .center
