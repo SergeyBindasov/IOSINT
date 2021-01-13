@@ -10,12 +10,7 @@ import UIKit
 
 final class FeedViewController: UIViewController {
     
-    let timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true)
-    { (t) in
-        print("\(t.fireDate)")
-    }
-    
-    
+
     let post: Post = Post(title: "Пост")
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -30,7 +25,6 @@ final class FeedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        timer.fire()
         navigationController?.navigationBar.isHidden = false
         print(type(of: self), #function)
     }

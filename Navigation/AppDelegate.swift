@@ -14,7 +14,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     var backgroundTask: UIBackgroundTaskIdentifier = .invalid
-    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
@@ -59,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         registerBackgroundTask()
-        // 26 секунд
         print("EnterBackground")
     }
     func applicationWillEnterForeground(_ application: UIApplication) {
