@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SnapKit
+
 
 class PhotosTableViewCell: UITableViewCell {
     
@@ -90,22 +92,25 @@ private extension PhotosTableViewCell {
         gallery.addArrangedSubview(thirdPic)
         gallery.addArrangedSubview(fourthPic)
         
+        photosLable.snp.makeConstraints { make in
+            make.top.leading.equalToSuperview().offset(16)
+        }
         
-        let constraints = [
-            photosLable.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 12),
-            photosLable.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            firstPic.heightAnchor.constraint(equalTo: firstPic.widthAnchor),
-            gallery.topAnchor.constraint(equalTo: photosLable.bottomAnchor, constant: 12),
-            gallery.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
-            gallery.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            gallery.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12),
-            arrowSign.centerYAnchor.constraint(equalTo: photosLable.centerYAnchor),
-            arrowSign.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
-            arrowSign.heightAnchor.constraint(equalTo: firstPic.heightAnchor, multiplier: 0.25),
-            arrowSign.widthAnchor.constraint(equalTo: arrowSign.heightAnchor),
-            arrowSign.bottomAnchor.constraint(equalTo: gallery.topAnchor, constant: -12),
-            
-        ]
-        NSLayoutConstraint.activate(constraints)
+        firstPic.snp.makeConstraints { make in
+            make.height.equalTo(firstPic.snp.width)
+        }
+        
+        gallery.snp.makeConstraints { make in
+            make.top.equalTo(photosLable.snp.bottom).offset(12)
+            make.bottom.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().offset(12)
+            make.trailing.equalToSuperview().inset(12)
+        }
+        
+        arrowSign.snp.makeConstraints { make in
+            make.centerY.equalTo(photosLable.snp.centerY)
+            make.width.height.equalTo(25)
+            make.trailing.equalToSuperview().inset(12)
+        }
     }
 }
