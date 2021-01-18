@@ -29,8 +29,7 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         navigationController?.navigationBar.isHidden = true
- 
-    }
+     }
     
     private func setupLayout() {
         view.addSubviewWithAutoLayout(tableView)
