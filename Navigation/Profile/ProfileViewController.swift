@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import SnapKit
+
 
 
 class ProfileViewController: UIViewController {
     
-        
     private lazy var tableView: UITableView = {
         let tv = UITableView(frame: .zero, style: .grouped)
         tv.register(PostTableViewCell.self, forCellReuseIdentifier: String(describing: PostTableViewCell.self))
@@ -28,21 +29,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         setupLayout()
         navigationController?.navigationBar.isHidden = true
-        
-    
-        
-    }
+     }
     
     private func setupLayout() {
         view.addSubviewWithAutoLayout(tableView)
         
-        let constraints = [
-            tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ]
-        NSLayoutConstraint.activate(constraints)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
 }
 
